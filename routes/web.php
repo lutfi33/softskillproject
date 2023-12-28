@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminProses;
 use App\Http\Controllers\LandingFasil;
 use App\Http\Controllers\LandingPeserta;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PenilaianController;
 use App\Http\Controllers\PesertaController;
 use App\Http\Controllers\RegisterController;
 
@@ -52,8 +53,12 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/updateDataPeserta/{id}',[PesertaController::class, 'updateDataPeserta'])->name('updateDataPeserta')->middleware('userAkses:superuser');
     Route::get('/deleteDataPeserta/{id}',[PesertaController::class, 'deleteDataPeserta'])->middleware('userAkses:superuser');
     
-    // Dashboard SUPERUSER
+    // Pengguna
+    Route::get('/deleteDataPengguna/{id}',[AdminProses::class, 'deleteDataPengguna'])->middleware('userAkses:superuser');
     Route::get('/dataPengguna',[AdminProses::class, 'pengguna'])->name('dataPengguna')->middleware('userAkses:superuser');
+    Route::get('/newPengguna',[AdminProses::class, 'tambahPengguna'])->name('newPengguna')->middleware('userAkses:superuser');
+    Route::post('/prosesInsert',[AdminProses::class, 'prosesPengguna'])->name('prosesInsert')->middleware('userAkses:superuser');
+    // Dashboard SUPERUSER
 
     // ============================================
     // Dashboard PESERTA
@@ -66,6 +71,13 @@ Route::middleware(['auth'])->group(function(){
     // Dashboard FASILITATOR
     Route::get('/landingEror',[LandingFasil::class, 'pageAdmin'])->name('landingEror')->middleware('userAkses:fasilitator');
     Route::get('/landingFasil',[LandingFasil::class, 'pageAdmin'])->name('landingFasil')->middleware('userAkses:fasilitator');
+    
+    // nilai
+    Route::get('/penilaian',[PenilaianController::class, 'tampilFasil'])->name('tampilFasil')->middleware('userAkses:fasilitator');
+    Route::get('/hasilPenilaian',[PenilaianController::class, 'index'])->name('indexPenilaian')->middleware('userAkses:fasilitator');
+    Route::get('/allData',[LandingFasil::class, 'tampilNilai'])->name('tampilNilai')->middleware('userAkses:fasilitator');
+    Route::post('/prosesNilai',[PenilaianController::class, 'insertDataNilai'])->name('prosesNilai')->middleware('userAkses:fasilitator');
+    Route::get('/deleteDataNilai/{id}',[LandingFasil::class, 'deleteDataNilai'])->name('deleteDataNilai')->middleware('userAkses:fasilitator');
     // Dashboard FASILITATOR
 });
 

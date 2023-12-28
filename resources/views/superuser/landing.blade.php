@@ -2,7 +2,7 @@
 
 @section('konten')
 <div class="container-fluid px-4">
-                        <h1 class="mt-5">Beranda</h1>
+                        <h1 class="mt-5">Beranda Superadmin</h1>
                         
                         <div class="row mt-3">
                             <div class="col-12 p-3 text-center">

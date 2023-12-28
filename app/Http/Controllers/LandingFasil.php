@@ -2,11 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Penilaian;
 use Illuminate\Http\Request;
 
 class LandingFasil extends Controller
 {
     function pageAdmin() {
-        return view('pageFasilitator');
+        return view('fasilitator.pageFasilitator');
     }
+
+    public function deleteDataNilai($id){
+        $data = Penilaian::find($id);
+        $data->delete();
+
+        return redirect()->route('indexPenilaian')->with('berhasil', 'Data Berhasil Di Hapus');
+    }
+
+    public function  tampilNilai(){
+        $nilaiList = Penilaian::all();
+       return view('fasilitator.dataPeserta', compact('nilaiList'));
+    }
+
 }

@@ -53,16 +53,13 @@
                             <img src="img/profile-icon.png" class="img-fluid rounded-circle" style="width: 70px;" alt="profile-icon">
                             <p class="text-light fw-bold mt-2"> {{ Auth::user()->fullName}}</p>
                             <p class="text-warning -mt-4" style="margin-top: -13px;"> {{ Auth::user()->idpengguna}}</p>
+                            <p class="bg-warning mx-3 py-1 rounded fw-bold">{{ Auth::user()->role}}</p>
                         </div>
                         <div class="hr"></div>
                         <div class="nav">
                             <a class="nav-link mb-2 text-light " href="/profilPeserta">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Profil Saya
-                            </a>
-                            <a class="nav-link mb-2 text-light " href="/nilaiPeserta">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Nilai Saya
                             </a>
                             <a class="nav-link mb-2 text-light " href="index.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>

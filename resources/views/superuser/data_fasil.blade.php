@@ -1,4 +1,4 @@
-@extends('layouts/main')
+@extends('../layouts/main')
 
 @section('konten')
 <div class="container mt-4">
@@ -10,7 +10,7 @@
                 <tr class="table-primary">
                     <th scope="col">No</th>
                     <th scope="col">Nama Lengkap</th>
-                    <th scope="col">NIDN</th>
+                    <th scope="col">NIDN</th>w
                     <th scope="col">Program Studi</th>
                     <th scope="col">Opsi</th>
                 </tr>

@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
 class LandingPeserta extends Controller
 {
     function nilaiPeserta() {
-        return view('nilaiPeserta');
+        return view('peserta.nilaiPeserta');
     }
-    function profilPeserta() {
-        return view('dataPeserta');
+    public function profilPeserta(){
+        return view('peserta.dataPeserta');
     }
 
     function pageAdmin() {
-        return view('pagePeserta');
+        return view('peserta.pagePeserta');
     }
 }

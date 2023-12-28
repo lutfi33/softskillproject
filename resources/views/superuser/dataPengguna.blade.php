@@ -1,8 +1,9 @@
-@extends('layouts/main')
+@extends('../layouts/main')
 
 @section('konten')
 <div class="container mt-4">
     <h2>Data Pengguna</h2>
+    <a href="/newPengguna" class="btn btn-success my-2">Tambah Pengguna</a>
     <div class="table-responsive mt-4">
         <table class="table">
             <thead>
@@ -29,7 +30,8 @@
                     <td>{{$item->username}}</td>
                     <td>{{$item->password}}</td>
                     <td>
-                        <a href="" class="btn btn-danger">Hapus</a>   
+                        <a href="/deleteDataPengguna/{{ $item->id }}" class="btn btn-warning">Edit</a>   
+                        <a href="/deleteDataPengguna/{{ $item->id }}" class="btn btn-danger">Hapus</a>   
                     </td>
                 </tr>
                 @endforeach

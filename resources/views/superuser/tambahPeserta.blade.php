@@ -8,20 +8,20 @@
         @csrf
         <div class="mb-3">
             <label for="nama">Nama lengkap:</label>
-            <input type="text" id="nama" name="namaLengkap" required>
+            <input type="text" class="form-control" id="nama" name="namaLengkap" required>
         </div>
         
         <div class="mb-3">
             <label for="nim">NIM :</label>
-            <input type="text" id="nim" name="nim" required>
+            <input type="text" class="form-control" id="nim" name="nim" required>
         </div>
         <div class="mb-3">
             <label for="prodi">Prodi :</label>
-            <input type="text" id="prodi" name="prodi" required>
+            <input type="text" class="form-control" id="prodi" name="prodi" required>
         </div>
         <div class="mb-3">
             <label for="level">Level :</label>
-            <select name='level' id="level" required>
+            <select class="form-select" name='level' id="level" required>
                 <option value='1'>Level 1</option>
                 <option value='2'>Level 2</option>
                 <option value='3'>Level 3</option>
@@ -32,7 +32,7 @@
 
         
         <div class="mb-3">
-        <input type="submit" value="Simpan">
+        <input type="submit" class="btn btn-primary" value="Simpan">
         </div>
     </form>
 

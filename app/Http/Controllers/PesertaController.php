@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peserta;
+
 use Illuminate\Http\Request;
 
 class PesertaController extends Controller
 {
-    
 
     function dataPeserta() {
         $data = Peserta::all();

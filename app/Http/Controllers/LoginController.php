@@ -34,7 +34,7 @@ class LoginController extends Controller
             return redirect('/landingSuper');
            }
         }else{
-            return redirect('')->withErrors('Usernam dan Password yang dimasukan tidak sesuai')->withInput();
+            return redirect('')->withErrors('Username dan Password yang dimasukan tidak sesuai')->withInput();
         }
     }
 

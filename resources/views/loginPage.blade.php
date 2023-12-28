@@ -58,11 +58,6 @@
                         Sign In
                         </button>
         
-                        <!-- Register buttons -->
-                        <div class="text-center">
-                            <p>Belum Punya Akun?</p>
-                            <a href="/register">Daftar</a>
-                        </div>
                     </form>
                 </div>
                 <div class="col-lg-4"></div>
