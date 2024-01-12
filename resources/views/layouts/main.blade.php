@@ -59,19 +59,19 @@
                         <div class="nav">
                             <a class="nav-link mb-2 text-light " href="/dataFasil">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Data Fasilitator
+                                Fasil/SuperUser
                             </a>
                             <a class="nav-link mb-2 text-light " href="/dataPeserta">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Data Peserta
                             </a>
+                            <a class="nav-link mb-2 text-light " href="/superPenilaian">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Penilaian
+                            </a>
                             <a class="nav-link mb-2 text-light " href="/dataPengguna">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Data Pengguna
-                            </a>
-                            <a class="nav-link mb-2 text-light " href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Tanya Developer?
                             </a>
 
                         </div>
@@ -117,6 +117,7 @@
                 </footer>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('js-ds/scripts.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

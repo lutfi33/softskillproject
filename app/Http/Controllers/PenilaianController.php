@@ -69,6 +69,74 @@ class PenilaianController extends Controller
     }
 
     // -========================
+    // DASHBOARD SUPERUSER
+
+    public function deleteDataNilai($id){
+        $data = Penilaian::find($id);
+        $data->delete();
+
+        return redirect()->route('tampilNilai')->with('berhasil', 'Data Berhasil Di Hapus');
+    }
+
+    public function  tampilNilai(){
+        $nilaiList = Penilaian::join('pesertas', 'pesertas.id', '=', 'penilaians.nama_peserta')
+                                ->join('fasil', 'fasil.id', '=', 'penilaians.nama_fasilitator')
+                                ->orderBy('penilaians.created_at', 'desc')
+                                ->get();
+       return view('superuser.dataNilai', compact('nilaiList'));
+    }
+    
+    public function dataNilai(){
+        return view('superuser.dataNilai');
+    }
+
+    public function superPenilaian() {
+        return view('superuser.penilaian');
+    }
+    
+    public function insertDataNilaiSuper(Request $request)
+    {
+
+        // Validasi input jika diperlukan
+        $request->validate([
+            'nim' => 'required',
+            'nama_peserta' => 'required',
+            'nama_fasilitator' => 'required',
+            'nilai_akhir' => 'required',
+            'presensi' => 'required',
+            // tambahkan aturan validasi lainnya sesuai kebutuhan
+        ]);
+
+        // mencari nilai rata - rata / total nilai
+        $nilaiPresensi = $request->input('presensi');
+        $nilaiAkhir = $request->input('nilai_akhir');
+
+        $rataRata = ($nilaiPresensi + $nilaiAkhir) / 2;
+
+        // Konversi Nilai
+        if ($rataRata >= 60 && $rataRata < 70) {
+            $konversi = 'C';
+        } elseif ($rataRata >= 70 && $rataRata < 85) {
+            $konversi = 'B';
+        } elseif ($rataRata >= 85 && $rataRata <= 100) {
+            $konversi = 'A';
+        } else {
+            return 'Tidak Valid';
+        }
 
 
+        // Simpan data ke dalam database
+        Penilaian::create([
+            'nim' => $request->input('nim'),
+            'nama_peserta' => $request->input('nama_peserta'),
+            'nama_fasilitator' => $request->input('nama_fasilitator'),
+            'nilai_akhir' => $request->input('nilai_akhir'),
+            'presensi' => $request->input('presensi'),
+            'total_nilai' => $rataRata,
+            'konversi_nilai' => $konversi
+        ]);
+
+        // Redirect atau berikan respons sesuai kebutuhan
+        return redirect()->route('tampilNilaiSuper');
+    }
 }

@@ -1,6 +1,6 @@
 <!-- Section: Design Block -->
 
-@include('layouts.head');
+@include('layouts.head')
     <section class="text-center text-lg-start">
         <style>
         .cascading-right {
@@ -41,7 +41,7 @@
                         <div class="row">
                         <div class="col-md-12 mb-4">
                             <div class="form-outline">
-                                <label class="form-label" for="form3Example1">Username</label>
+                                <label class="form-label" for="form3Example1">Username/NIM/NIDN</label>
                             <input type="text" id="form3Example1" value="{{ old('username')}} " name="username" class="form-control" />
                             </div>
                         </div>
@@ -59,6 +59,8 @@
                         </button>
         
                     </form>
+
+                    <a href="/forgotpassword" class="text-danger">Forgot Password</a>
                 </div>
                 <div class="col-lg-4"></div>
             </div>

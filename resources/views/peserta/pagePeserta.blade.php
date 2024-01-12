@@ -12,7 +12,7 @@
                                 <h4 class="mt-5">Selamat datang di Aplikasi SOFTSKILL 2024</h4>
 
                                 <p>Ayo kembangkan pengetahuan SOFTSKILL kamu untuk masa depan🚀</p>
-                                <a href="" class="btn btn-primary">Lihat Nilaiku</a>
+                                <a href="/profilPeserta" class="btn btn-primary">Lihat Nilaiku</a>
                             </div>
                         </div>
                     </div>

@@ -13,13 +13,15 @@
             <p>Username : {{ Auth::user()->username}}</p>
             <p>Nama Lengkap : {{ Auth::user()->fullName}}</p>
             <p>Nim : {{ Auth::user()->idpengguna}}</p>
-            <p>Prodi : Teknologi Informasi</p>
-            <p>Level : 1</p>
-            <p>Password : *******</p>
+                <p>Prodi : {{ $dataPeserta->prodi }}</p>
+                <p>Level : {{ $dataPeserta->level }}</p>
         </div>
         <div class="col-md-4 border text-center radius-mid shadow bg-info">
-            <h6>Predikat Pelatihan Terkahir</h6>
-            <h1>A</h1>
+            <h6 class=" mt-5">Predikat Pelatihan Terkahir</h6>
+            @foreach($nim as $participant)
+                <h1>{{ $participant->konversi_nilai }}</h1>
+            @endforeach
+            
         </div>
 
     </div>

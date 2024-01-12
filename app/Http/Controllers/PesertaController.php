@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Peserta;
-
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PesertaController extends Controller
 {
@@ -22,6 +23,16 @@ class PesertaController extends Controller
     public function prosesPeserta(Request $request)
     {
         // dd($request->all());
+        // Simpan data ke dalam database
+        $role = "peserta";
+        User::create([
+            'fullName' => $request->input('namaLengkap'),
+            'idpengguna' => $request->input('nim'),
+            'username' => $request->input('nim'),
+            'password' =>  Hash::make($request->input('nim')),
+            'role' => $role
+        ]);
+
         Peserta::create($request->all());
         $data = Peserta::all();
         // return redirect()->route('superuser.dataPeserta')->with('berhasil', 'Data Berhasil Di Simpan');
@@ -46,4 +57,6 @@ class PesertaController extends Controller
 
         return back()->with('success', 'Post berhasil diperbarui');
     }
+
+    
 }

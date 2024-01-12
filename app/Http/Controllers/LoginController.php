@@ -10,6 +10,9 @@ class LoginController extends Controller
     function login(){
         return view('loginPage');
     }
+    function forgotpassword(){
+        return view('forgot');
+    }
 
     function loginProses(Request $request){
         $request->validate([

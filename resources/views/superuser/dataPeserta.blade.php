@@ -3,7 +3,30 @@
 @section('konten')
 <div class="container mt-4">
     <h2>Data Peserta Softskill</h2>
-    <a href="/tambahPeserta" class="btn btn-success">Tambah Peserta</a>
+
+    <div class="row my-3">
+        <div class="col-md-8">
+            <a href="/tambahPeserta" class="btn btn-success">Tambah Peserta</a>
+        </div>
+        <div class="col-md-4">
+            <form action="{{ route('filter.by.level') }}" method="POST">
+                @csrf
+                <div class="row mb-3">
+                    <div class="col-2 m-auto"><label for="level">Filter</label></div>
+                    <div class="col-5">
+                        <select class="form-control" id="level" name="level">
+                        <option value="1">Level 1</option>
+                        <option value="2">Level 2</option>
+                        <option value="3">Level 3</option>
+                        </select>
+                    </div>
+                    <div class="col-5 m-auto">
+                        <button type="submit" class="btn btn-primary">Cari</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="table-responsive mt-4">
         <table class="table">
             <thead>

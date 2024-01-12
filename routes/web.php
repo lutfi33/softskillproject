@@ -26,6 +26,8 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/',[LoginController::class, 'loginProses'])->name('loginProses');
     Route::get('register',[RegisterController::class, 'register'])->name('register');
     Route::post('registerProses',[RegisterController::class, 'registerProses'])->name('registerProses');
+    Route::get('/forgotpassword',[LoginController::class, 'forgotpassword'])->name('forgotpassword');
+    Route::post('/prosesforgotpassword',[LoginController::class, 'prosesforgotpassword'])->name('prosesforgotpassword');
 });
 
 Route::get('/home',[AdminProses::class, 'index'])->name('datafail');
@@ -58,6 +60,19 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dataPengguna',[AdminProses::class, 'pengguna'])->name('dataPengguna')->middleware('userAkses:superuser');
     Route::get('/newPengguna',[AdminProses::class, 'tambahPengguna'])->name('newPengguna')->middleware('userAkses:superuser');
     Route::post('/prosesInsert',[AdminProses::class, 'prosesPengguna'])->name('prosesInsert')->middleware('userAkses:superuser');
+
+     // nilai
+     Route::get('/superPenilaian',[PenilaianController::class, 'superPenilaian'])->name('superPenilaian')->middleware('userAkses:superuser');
+     Route::get('/superNilai',[PenilaianController::class, 'tampilNilai'])->name('tampilNilaiSuper')->middleware('userAkses:superuser');
+     Route::post('/insertDataNilaiSuper',[PenilaianController::class, 'insertDataNilaiSuper'])->name('insertDataNilaiSuper')->middleware('userAkses:superuser');
+     Route::get('/superDeleteDataNilai/{id}',[PenilaianController::class, 'deleteDataNilai'])->name('deleteDataNilai')->middleware('userAkses:superuser');
+
+    //  newpuseruser
+    Route::get('/newSuperuser',[AdminProses::class, 'newSuperuser'])->name('newSuperuser')->middleware('userAkses:superuser');
+    Route::post('/insertDataSuper',[AdminProses::class, 'insertDatasuper'])->name('insertDataSuper')->middleware('userAkses:superuser');
+
+    // FILTER DATA
+    Route::post('/filter', [AdminProses::class, 'filterByLevel'])->name('filter.by.level')->middleware('userAkses:superuser');
     // Dashboard SUPERUSER
 
     // ============================================

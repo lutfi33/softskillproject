@@ -2,15 +2,22 @@
 
 @section('konten')
 <div class="container mt-4">
-    <h2>Data Fasilitator</h2>
-    <a href="/newFasil" class="btn btn-success my-2">Tambah Fasil</a>
+    <h2>Data Administrator</h2>
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <a href="/newFasil" class="btn btn-success my-2">Tambah Fasil</a>
+            <a href="/newSuperuser" class="btn btn-primary my-2">Tambah Superuser</a>
+        </div>
+        
+    </div>
     <div class="table-responsive mt-4">
         <table class="table">
             <thead>
                 <tr class="table-primary">
                     <th scope="col">No</th>
                     <th scope="col">Nama Lengkap</th>
-                    <th scope="col">NIDN</th>w
+                    <th scope="col">NIDN</th>
                     <th scope="col">Program Studi</th>
                     <th scope="col">Opsi</th>
                 </tr>

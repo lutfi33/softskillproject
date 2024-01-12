@@ -1,4 +1,4 @@
-@extends('../layouts/layoutFasil')
+@extends('../layouts/main')
 
 @section('konten')
     <div class="container mt-5">
@@ -24,7 +24,12 @@
 
             <div class="form-group mb-3">
                 <label for="nama_fasilitator">Nama Fasilitator:</label>
-                <input type="text" class="form-control disable" id="nama_fasilitator" name="nama_fasilitator" value="{{ Auth::user()->fullName}}" readonly required>
+                <select class="form-control" id="nama_fasilitator" name="nama_fasilitator" required>
+                    <option value="">Pilih</option>
+                    @foreach(\App\Models\Fasil::all() as $participant)
+                        <option value="{{ $participant->id }}">{{ $participant->nama }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group mb-3">
